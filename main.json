@@ -1,0 +1,32 @@
+{
+    "Metadata" : {
+	"Comment" : "Hello, my intrepid developer! We're entering what we call, Infrastructure-as-a-Service code. This is logic that describes what your cloud will look like in the cloud #cloud-ception. I know, it's a bit strange that this is all written in JSON, but look at it more like a template that defines and describes relationships between things, rather than straight-up Python, JavaScript, or any general-purpose programming language you're use to. This is for the cloud, specifically."
+    },
+    "Resources" : {
+	"LoadBalancer" : {
+  	    "Metadata" : {
+		"Comment" : "We're creating what's called a Load Balancer. This component sits in front of a pool of servers, and decides who gets what. Specifically, it takes care of: (1) Distributing network requests across multiple servers. (2) Keeping track of your healthy servers aka servers that can respond to a request, and sending requests only to the healthy ones. (3) Making it really dang easy to add or subtract servers from a pool of computers."
+	    },
+	    "Type" : "AWS::ElasticLoadBalancing::LoadBalancer",
+	    "Properties" : {
+		"LoadBalancerName" : "Basic-Web-System-LB",
+		"Scheme" : "internet-facing",
+		"AvailabilityZones" : [
+		    {
+			"Fn::Select" : [0,
+					{
+					    "Fn::GetAZs" : { "Ref" : "AWS::Region" }
+					}]
+		    }],
+		"Listeners" : [
+		    {
+			"InstancePort" : "80",
+			"LoadBalancerPort" : "80",
+			"InstanceProtocol" : "HTTP",
+			"Protocol" : "HTTP"
+		    }
+		]
+	    }
+	}
+    }
+}
