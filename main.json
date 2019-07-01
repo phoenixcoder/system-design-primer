@@ -11,13 +11,7 @@
 	    "Properties" : {
 		"LoadBalancerName" : "Basic-Web-System-LB",
 		"Scheme" : "internet-facing",
-		"AvailabilityZones" : [
-		    {
-			"Fn::Select" : [0,
-					{
-					    "Fn::GetAZs" : { "Ref" : "AWS::Region" }
-					}]
-		    }],
+		"AvailabilityZones" : [{ "Fn::Select" : [0, {"Fn::GetAZs" : { "Ref" : "AWS::Region" }}]}],
 		"Listeners" : [
 		    {
 			"InstancePort" : "80",
@@ -26,6 +20,46 @@
 			"Protocol" : "HTTP"
 		    }
 		]
+	    }
+	},
+	"BasicWebSystemAutoScalingGroup" : {
+	    "Metadata" : {
+		"Comment" : "Added a pool of computers."
+	    },
+	    "Type" : "AWS::AutoScaling::AutoScalingGroup",
+	    "Properties" : {
+		"AutoScalingGroupName" : "Basic-Web-System-ASG",
+		"AvailabilityZones" : [{ "Fn::Select" : [0, {"Fn::GetAZs" : { "Ref" : "AWS::Region" }}]}],
+		"DesiredCapacity" : "2",
+		"HealthCheckType" : "EC2",
+		"LaunchConfigurationName" : { "Ref" : "BasicWebSystemLaunchConfiguration" },
+		"LoadBalancerNames" : [{ "Ref" : "LoadBalancer"}],
+		"MaxSize" : "3",
+		"MinSize" : "2"
+	    }
+	},
+	"BasicWebSystemLaunchConfiguration" : {
+	    "Metadata" : {
+		"Comment" : "Tells you how to setup each instance in the pool of computers.",
+		"AWS::CloudFormation::Init" : {
+		    "configSets" : {
+			"Install" : [ "Install" ]
+		    },
+		    "Install" : {
+			"packages" : {
+			    "yum" : {
+				"go" : []
+			    }
+			}
+			TODO Download and unpack application file.
+		    }
+		}
+	    },
+	    "Type" : "AWS::AutoScaling::LaunchConfiguration",
+	    "Properties" : {
+		"ImageId" : "ami-a0cfeed8",
+		"InstanceType" : "t2.micro",
+		"UserData" : "" TODO Start Go webserver here with cfn-init
 	    }
 	}
     }
