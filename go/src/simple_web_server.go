@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -10,7 +11,8 @@ import (
 var msg string = "Hello, I'm your webserver today!!! My name is: %s.\n"
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, msg)
+	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+	io.WriteString(w, msg)
 }
 
 func getServerName(args []string) string {
