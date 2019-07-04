@@ -21,6 +21,7 @@ func computeBomb(cycles int) {
 	}
 }
 
+// TODO Refactor to handle concurrent request for the load test portion.
 func handler(w http.ResponseWriter, r *http.Request) {
 	msg := "Hello, I'm your webserver today!!!\nMy name is, %s.\n"
 	query := r.URL.Query()
