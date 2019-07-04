@@ -19,7 +19,11 @@
 			"InstanceProtocol" : "HTTP",
 			"Protocol" : "HTTP"
 		    }
-		]
+		],
+		"Tags" : [ {
+		    "Key" : "Name",
+		    "Value" : { "Ref" : "StackTag" }
+		} ]
 	    }
 	},
 	"BasicWebSystemAutoScalingGroup" : {
@@ -35,14 +39,23 @@
 		"LaunchConfigurationName" : { "Ref" : "BasicWebSystemLaunchConfiguration" },
 		"LoadBalancerNames" : [ { "Ref" : "LoadBalancer" } ],
 		"MaxSize" : "3",
-		"MinSize" : "2"
+		"MinSize" : "2",
+		"Tags" : [ {
+		    "PropagateAtLaunch" : true,
+		    "Key" : "Name",
+		    "Value" : { "Ref" : "StackTag" }
+		} ]
 	    }
 	},
 	"BasicWebSystemSecurityGroup" : {
 	    "Type" : "AWS::EC2::SecurityGroup",
 	    "Properties" : {
 		"GroupName" : "Basic-Web-System-SG",
-		"GroupDescription" : "Security group primarily to allow for public SSH inbound traffic."
+		"GroupDescription" : "Security group primarily to allow for public SSH inbound traffic.",
+		"Tags" : [ {
+		    "Key" : "Name",
+		    "Value" : { "Ref" : "StackTag" }
+		} ]
 	    }
 	},
 	"BasicWebSystemSGEgress" : {
@@ -130,7 +143,7 @@
 		    "Run" : {
 			"commands" : {
 			    "RunSimpleWebServer" : {
-				"command" : "sudo /etc/SimpleWebServer/go/bin/simple_web_server &"
+				"command" : "sudo /etc/SimpleWebServer/go/bin/simple_web_server $(curl http://169.254.169.254/latest/meta-data/instance-id) &"
 			    }
 			}
 		    }
@@ -158,6 +171,13 @@
 			       }
 			     }
 	    }
+	}
+    },
+    "Parameters" : {
+	"StackTag" : {
+	    "Type" : "String",
+	    "Default" : "phoenixcoder",
+	    "Description" : "A way to find your straggling resources."
 	}
     }
 }
