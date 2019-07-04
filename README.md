@@ -23,6 +23,8 @@ These examples are backed by [AWS Cloudformation Templates](https://github.com/p
 
 ## Basic Distributed Web System Example
 ### Why is this important?
+[(Nah, just let me play!)](https://github.com/phoenixcoder/IntroSystemDesign/blob/master/README.md#ready-to-play)
+
 A distributed web system is valuable for handling a large request volume beyond what a single computer
 can handle. These requests can be a page visit to a file to borrowing some time for finding aliens - you never know.
 If you have these happening thousands to tens of thousands or more per second, a single computer is unlikely to handle all of it. So, the goal for this design is to find some way to give this computer some friends.
