@@ -2,7 +2,7 @@
 
 ## Purpose
 This is a hands-on introduction to the components involved in large-scale systems. This guide hopes to help
-you learn about the design of such systems by helping you setup and play with the components directly. I'll tackle different problem scenarios and try to build upon the lessons of the previous examples as we go along. The intention is for the scenarios to get more complicated, and to think of algorithms in a distributed manner. If you have any suggestions as to scenarios you want to see addressed, please let me know through the [repo's issues page](https://github.com/phoenixcoder/IntroSystemDesign/issues).
+you learn about the design of such systems by helping you setup and play with the components directly. I'll tackle different problem scenarios and try to build upon the lessons of the previous examples as we go along. The intention is for the scenarios to get more complicated, and to think of algorithms in a distributed manner. If you have any suggestions as to scenarios you want to see addressed, please let me know through the [repo's issues page](https://github.com/phoenixcoder/IntroSystemDesign/issues) or send me a pull request with changes you've made.
 
 These examples are backed by [AWS Cloudformation Templates](https://github.com/phoenixcoder/IntroSystemDesign#what-is-an-aws-cloudformation-template) that automate infrastructure setup so you can get to playing quicker. I plan to add more examples over time that cross different platforms like GCP and Azure. I have and will continue to design all examples to work within the free-tier of any platform we use. 
 
