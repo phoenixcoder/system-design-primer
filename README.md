@@ -34,9 +34,14 @@ shows how the basic components work together to give that computer some companio
 ![](https://github.com/phoenixcoder/IntroSystemDesign/blob/master/resources/img/basic-distributed-web-system.png)
 
 ### Components
-- Load Balancer
-- Computer Pool
-- Web Server Application
+- Load Balancer: This component sits in front of a pool of servers, and decides who gets what. Specifically, it takes care of:
+  1. Distributing network requests across multiple servers.
+  2. Keeping track of your healthy servers aka servers that can respond to a request, and sending requests only to the healthy ones.
+  3. Making it really dang easy to add or subtract servers from a pool of computers.
+  
+  In this scenario, these load balancers are servers themselves performing and maintaining the properties above.
+- Computer Pool: These are just your typical plain ol' servers. These have been configured to be on the same subnet, and configurations made so they can see each other. It's useful if you want the servers to talk to one another, which we'll get into in later examples.
+- Web Server Application: This is like any other web application that services HTTP requests. In this scenario, I've developed a [simple web server](https://github.com/phoenixcoder/IntroSystemDesign/blob/master/go/src/simple_web_server.go) using golang that will respond to requests with a simple greeting as to which server responded.
 
 ### Ready to Play?
 #### Running the Example
