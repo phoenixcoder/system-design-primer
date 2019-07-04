@@ -6,20 +6,17 @@ The examples here are backed by AWS Cloudformation Templates, which automates th
 play/experiment with the components. I'll be adding more examples here over time, on different platforms e.g. GCP, Azure, etc. to address certain problem scenarios, and ways we can solve them. I have and will continue to design all these examples with the free-tier and cost in mind of any platform we use. 
 
 ## Before You Get Started
-0. Know the basics of Git: TODO Link git tutorial here.
+1. Know Git Basics. Here are some [tutorials](https://github.com/phoenixcoder/IntroSystemDesign#git-basics-and-tutorials) to get you started.
 1. Create an AWS account: [AWS Documentation: How do I create and activate a new Amazon Web Services account?](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/)
-2. [Create an AWS Admin User, and Locally Save Access Key ID and Secret Access Key.](TODO Update with Section Anchor Link)
-3. [Configure AWS CLI with the Administrative User Credentials.](TODO Update with Section Anchor Link) 
-4. CAUTION, I attempt to contain everything within a Cloudformation template that usually keeps track of what resources it
-creates and what resources it deletes when removed. However, if you run into any problems with deletion, just know
-if some resources stick around e.g. EC2 instances, that once the free tier expires you may be charged.
-5. All of the following was tested using the following:
- - macOS Mojave 10.14.5
- - iTerm2 Build 3.2.9
+1. [Create an AWS Admin User, and Locally Save Access Key ID and Secret Access Key.](https://github.com/phoenixcoder/IntroSystemDesign#create-an-aws-admin-user-and-locally-save-access-key-id-and-secret-access-key)
+1. [Configure AWS CLI with the Administrative User Credentials](https://github.com/phoenixcoder/IntroSystemDesign#configure-aws-cli-with-admin-users-access-key-id-and-secret-key) 
+1. All of the following was tested using the following:
+   - macOS Mojave 10.14.5
+   - iTerm2 Build 3.2.9
 
- In general, it's probably sufficient to just have some version of macOS that's 10.x.x+ and vanilla terminal.
- For Windows users, your time is coming for vetted instructions.
-6. For Mac users, you will need the following:
+   In general, it's probably sufficient to just have some version of macOS that's 10.x.x+ and vanilla terminal.
+   For Windows users, your time is coming for vetted instructions.
+1. For Mac users, you will need the following:
  - [AWS Documentation: Install the AWS CLI on macOS Using pip](https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html#awscli-install-osx-pip)
  - [AWS Documentation: Add the AWS CLI Executable to Your macOS Command Line Path](https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html#awscli-install-osx-path)
 
@@ -33,7 +30,7 @@ all of them successfully. If that single computer can't handle the load, why not
 shows how the basic components work together to give that computer some companions to bear the load.
 
 ### What does it look like?
-TODO Insert Diagram Here
+![](https://github.com/phoenixcoder/IntroSystemDesign/blob/master/resources/img/basic-distributed-web-system.png)
 
 ### Components
 - Load Balancer
@@ -45,7 +42,7 @@ TODO Insert Diagram Here
 1. Open your favorite terminal.
 1. Clone this repo by running: `git clone https://github.com/phoenixcoder/IntroSystemDesign.git`
 1. Run `cd IntroSystemDesign`
-1. [Verify Your AWS CLI is Configured Properly](TODO Insert Anchor Section Link)
+1. [Verify Your AWS CLI is Configured Properly](https://github.com/phoenixcoder/IntroSystemDesign#verify-your-aws-cli-is-configured-properly)
 1. Open the [AWS Cloudformation console](https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks).
 1. Keep the [AWS Cloudformation console](https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks) open, and switch back to your terminal to run:
 `aws cloudformation create-stack --stack-name basic-distributed-web-system-stack --template-body file://aws/cloudformation/templates/basic-distributed-web-system.json`
@@ -59,7 +56,7 @@ TODO Insert Diagram Here
 
    When you go back to the [AWS Cloudformation console](https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks), you should see
    under **Stacks** an item labeled **basic-distributed-web-system-stack**.
-1. Wait until the item **basic-distributed-web-system-stack** on the [AWS Cloudformation console](https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks) reports under it **CREATE_COMPLETE**. If it reports **ROLLBACK_IN_PROGRESS** or **ROLLBACK_COMPLETE**, then something has gone wrong, please submit an issue [here](TODO Insert Github Bug Page).
+1. Wait until the item **basic-distributed-web-system-stack** on the [AWS Cloudformation console](https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks) reports under it **CREATE_COMPLETE**. If it reports **ROLLBACK_IN_PROGRESS** or **ROLLBACK_COMPLETE**, then something has gone wrong, please submit an issue [here](https://github.com/phoenixcoder/IntroSystemDesign/issues).
 
 #### Experimentation Suggestions
 ##### Smash Curl the Load-Balancer
@@ -116,7 +113,7 @@ The above means that at least two different servers responded to all your reques
    Default region name [None]: us-west-2
    Default output format [None]: json
    ```
-3. [Verify Your AWS CLI is Configured Properly](TODO Insert Anchor Section Link)
+3. [Verify Your AWS CLI is Configured Properly](https://github.com/phoenixcoder/IntroSystemDesign#verify-your-aws-cli-is-configured-properly)
 
 ## Verify Your AWS CLI is Configured Properly
 Run `aws iam get-user`, you should get output similar to the following:
