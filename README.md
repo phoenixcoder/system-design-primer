@@ -23,12 +23,9 @@ These examples are backed by [AWS Cloudformation Templates](https://github.com/p
 
 ## Basic Distributed Web System Example
 ### Why is this important?
-A distributed web system shows its value when it handles a number of requests beyond what a single computer
-can handle. These requests can be anything from just visiting a webpage to downloading a file to borrowing
-some time on your system to calculate the largest prime - you never know. If you have these happening thousands
-to tens of thousands or more per second, a single computer will probably start to have a lot of trouble completing
-all of them successfully. If that single computer can't handle the load, why not give it some help? This example
-shows how the basic components work together to give that computer some companions to bear the load.
+A distributed web system is valuable for handling a large request volume beyond what a single computer
+can handle. These requests can be a page visit to a file to borrowing some time for finding aliens - you never know.
+If you have these happening thousands to tens of thousands or more per second, a single computer is unlikely to handle all of it. So, the goal for this design is to find some way to give this computer some friends.
 
 ### What does it look like?
 ![](https://github.com/phoenixcoder/IntroSystemDesign/blob/master/resources/img/basic-distributed-web-system.png)
@@ -42,6 +39,13 @@ shows how the basic components work together to give that computer some companio
   In this scenario, these load balancers are servers themselves performing and maintaining the properties above.
 - Computer Pool: These are just your typical plain ol' servers. These have been configured to be on the same subnet, and configurations made so they can see each other. It's useful if you want the servers to talk to one another, which we'll get into in later examples.
 - Web Server Application: This is like any other web application that services HTTP requests. In this scenario, I've developed a [simple web server](https://github.com/phoenixcoder/IntroSystemDesign/blob/master/go/src/simple_web_server.go) using golang that will respond to requests with a simple greeting as to which server responded.
+
+Each instance that enters into the **Computer Pool** is required to register with the **Load Balancer** before it can begin operations. Whenever the **Load Balancer** receives a request, it uses a routing algorithm to send a request to one of the servers in the **Computer Pool**, which can by any of the following:
+- Round Robin (yummmm!): The load is distributed in sequential order. If you had 3 servers, the next four requests would run around the triangle: 1 -> 2 -> 3 -> 1.
+- Least Connections: The load balancer keeps a sorted list by least number of connections. It distributes the next request to the one doing the least work.
+- Hashing: There's some fancy hash algorithm that maps the next request to its intended destination. We can tackle the algorithms for this at a later date.
+
+Something to highlight here is that the **Load Balancer** is an intermediary between the client who sent the request and the server that's serving it. So, remember that there are two side of the connection to consider here: one between the client and load balancer, and the load balancer and server.
 
 ### Ready to Play?
 #### Running the Example
