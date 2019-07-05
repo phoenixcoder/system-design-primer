@@ -128,7 +128,7 @@ In this scenario, the **Load Balancer** is an intermediary between the client wh
 
    The above means that at least two different servers responded to all your requests.
 
-#### Clean-up
+### Clean-up
 
 1. Open the [AWS Cloudformation console.](https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks)
 1. Click on the item **basic-distributed-web-system-stack**, and in the upper-right corner click **Delete**.
