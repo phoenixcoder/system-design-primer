@@ -67,7 +67,8 @@ In this scenario, the **Load Balancer** is an intermediary between the client wh
 #### Running the Example
 
 1. Open your favorite terminal.
-1. Clone this repo by running: 
+1. Clone this repo by running:
+
    ```
    git clone https://github.com/phoenixcoder/IntroSystemDesign.git
    ```
@@ -75,6 +76,7 @@ In this scenario, the **Load Balancer** is an intermediary between the client wh
 1. Make sure you've [configured your AWS CLI](#configure-aws-cli-with-admin-users-access-key-id-and-secret-key).
 1. Open the [AWS Cloudformation console](https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks).
 1. Keep the [AWS Cloudformation console](https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks) open, and switch back to your terminal to run:
+
    ```
    aws cloudformation create-stack --stack-name basic-distributed-web-system-stack \
                                    --template-body file://aws/cloudformation/templates/basic-distributed-web-system.json
@@ -145,14 +147,19 @@ For Mac users, you will need the following:
 ## Configure AWS CLI with Admin User's Access Key ID and Secret Key
 
 1. Open your favorite terminal.
-1. Run `aws configure`. The following sequence of lines should appear.
+1. Run `aws configure`
+
+   The following sequence of lines should appear.
    ```
+   aws configure
    AWS Access Key ID [None]: <Your Access Key Here>
    AWS Secret Access Key [None]: <Your Access Secret Here>
    Default region name [None]: us-west-2
    Default output format [None]: json
    ```
-1. Run `aws iam get-user`, you should get output similar to the following:
+1. Run `aws iam get-user`
+
+   You should get output similar to the following:
    ```
    {
      "User": {
@@ -165,7 +172,7 @@ For Mac users, you will need the following:
    }
    ```
 
-This validates your configuration is working.
+   This validates your configuration is working.
 
 ## What is an AWS Cloudformation Template?
 
