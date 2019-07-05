@@ -51,12 +51,14 @@ If you have these happening thousands to tens of thousands or more per second, a
 - **Computer Pool:** These are just your typical plain ol' servers. These have been configured to be on the same subnet, and configurations made so they can see each other. It's useful if you want the servers to talk to one another, which we'll get into in later examples.
 - **Web Server Application:** This is like any other web application that services HTTP requests. In this scenario, I've developed a [simple web server](https://github.com/phoenixcoder/IntroSystemDesign/blob/master/go/src/simple_web_server.go) using golang that will respond to requests with a simple greeting as to which server responded.
 
-#### Relationships
+#### Component Relationships
 Each instance that enters into the **Computer Pool** is required to register with the **Load Balancer** before it can begin operations. Whenever the **Load Balancer** receives a request, it uses a routing algorithm to send a request to one of the servers in the **Computer Pool**, which can by any of the following:
 
-- **Round Robin (yummmm!):** The load is distributed in sequential order. If you had 3 servers, the next four requests would run around the triangle: *1 -> 2 -> 3 -> 1*.
-- **Least Connections:** The load balancer keeps a sorted list by least number of connections. It distributes the next request to the one doing the least work.
-- **Hashing:** There's some fancy hash algorithm that maps the next request to its intended destination. We can tackle the algorithms for this at a later date.
+- **Round Robin (yummmm!):** The load is distributed in sequential order. If you had 3 servers, the next four requests would run around the triangle: *1 -> 2 -> 3 -> 1*. The general reason you want this is because you know your jobs/traffic you're doing are all pretty much the same. There's no real need to differentiate.
+- **Least Connections:** The load balancer keeps a list of servers sorted by least number of connections. It distributes the next request to the one with the least connections aka the laziest one of the bunch.
+  
+  The general reason you want something like this is that **NOT** all traffic is created equal. Some requests may take longer than others, and if you're doing Round Robin, some servers may have the unfortunate case of getting a bunch of requests that all take really really long. This helps to alleviate this in a simpler manner. We can tackle the specifics of algorithms/needs for this in later scenarios.
+- **Hashing:** There's some fancy hash algorithm that maps the next request to its intended destination. The general reason you want something like this is you have special and magical ways of organizing traffic. We can tackle the specifics of algorithms/needs for this in later scenarios.
 
 In this scenario, the **Load Balancer** is an intermediary between the client who sent the request and the server that's serving it. So, remember that there are two sides of the connection to consider here:
 - Client <-> Load Balancer
