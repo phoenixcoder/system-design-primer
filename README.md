@@ -9,11 +9,11 @@ These examples are backed by [AWS Cloudformation Templates](https://github.com/p
 
 ## Before You Get Started
 
-1. Know Git Basics. Here are some [tutorials](https://github.com/phoenixcoder/IntroSystemDesign#git-basics-and-tutorials) to get you started.
+1. Know Git Basics. Here are some [tutorials](#git-basics-and-tutorials) to get you started.
 1. Create an AWS account: [AWS Documentation: How do I create and activate a new Amazon Web Services account?](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/)
-1. [Create an AWS Admin User, and Locally Save Access Key ID and Secret Access Key.](https://github.com/phoenixcoder/IntroSystemDesign#create-an-aws-admin-user-and-locally-save-access-key-id-and-secret-access-key)
-1. [Install AWS CLI](https://github.com/bhurstGH/IntroSystemDesign#install-aws-cli)
-1. [Configure AWS CLI with the Administrative User Credentials](https://github.com/phoenixcoder/IntroSystemDesign#configure-aws-cli-with-admin-users-access-key-id-and-secret-key)
+1. [Create an AWS Admin User, and Locally Save Access Key ID and Secret Access Key.](#create-an-aws-admin-user-and-locally-save-access-key-id-and-secret-access-key)
+1. [Install AWS CLI](#install-aws-cli)
+1. [Configure AWS CLI with the Administrative User Credentials](#configure-aws-cli-with-admin-users-access-key-id-and-secret-key)
 
 Tested using the following:
 
