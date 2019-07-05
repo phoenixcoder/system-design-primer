@@ -16,7 +16,7 @@ These examples are backed by [AWS Cloudformation Templates](#what-is-an-aws-clou
 
    Don't fret, I've designed all the scenarios to take advantage of the [AWS Free Tiers](https://aws.amazon.com/free/) for every component we use. I also provide a way to ensure all your components are cleaned up at the end of every scenario.
 
-   **Just please be meticulous about completing the clean-up sections.**
+   **Just please be meticulous about completing the clean-up sections after each scenario.**
 1. [Create an AWS Admin User, and Locally Save Access Key ID and Secret Access Key.](#create-an-aws-admin-user-and-locally-save-access-key-id-and-secret-access-key)
 1. [Install AWS CLI](#install-aws-cli)
 1. [Configure AWS CLI with the Administrative User Credentials](#configure-aws-cli-with-admin-users-access-key-id-and-secret-key)
