@@ -153,6 +153,7 @@
 	    "Properties" : {
 		"ImageId" : "ami-a0cfeed8",
 		"InstanceType" : "t2.micro",
+		"SecurityGroups" : [ { "Ref" : "BasicWebSystemSecurityGroup" } ],
 		"UserData" : { "Fn::Base64" :
 			       { "Fn::Join" : ["", [
 				   "#!/bin/bash -xev\n",
