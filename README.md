@@ -129,17 +129,7 @@ In this scenario, the **Load Balancer** is an intermediary between the client wh
 
 ## Create an AWS Admin User and Locally Save Access Key ID and Secret Access Key
 
-1. Create and/or login to AWS console in the us-west-2 region: [us-west-2.console.aws.amazon.com](https://us-west-2.console.aws.amazon.com)
-1. On the homepage, use the **Find Services** textbox, type in "IAM". Click on the **IAM** option in the drop-down.
-1. On the left-panel, click on **Users**.
-1. On the right-panel, at the top, click on the **Add User** button.
-1. Under **Set user details**, in the **User name** field, type in "admin".
-1. Under **Select AWS access type**, next to **Access type**, check the **Programmatic access** checkbox.
-1. On the bottom-right, click the **Next: Permissions** button.
-1. Under **Set permissions**, click on **Attach existing policies directly**.
-1. In the **Search** box, type in "AdministratorAccess" and check the **AdministratorAccess** checkbox.
-1. On the bottom-right, click on **Next: Tags**.
-1. On the bottom-right, click on **Next: Review**.
+1. Go to this [artisanally crafted new users link to create an admin user](https://console.aws.amazon.com/iam/home?#/users$new?step=review&accessKey&userNames=admin&permissionType=policies&policies=arn:aws:iam::aws:policy%2FAdministratorAccess). If it asks you to login, please do so.
 1. On the bottom-right, click on **Create: user**.
 1. On the very right, under **Secret access key**, click on the **Show** link.
 1. Copy the **Access key ID** and **Secret access key**. Put it somewhere safe. If you close the window or skip this step for whatever reason, you will have to create a new access key and secret.
