@@ -10,7 +10,13 @@ These examples are backed by [AWS Cloudformation Templates](#what-is-an-aws-clou
 ## Before You Get Started
 
 1. Know Git Basics. Here are some [tutorials](#git-basics-and-tutorials) to get you started.
-1. Create an AWS account: [AWS Documentation: How do I create and activate a new Amazon Web Services account?](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/)
+1. [Create an AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/).
+
+   **NOTE:** All of these components are *real and production-grade*. Thus, this step requires a **credit card**.
+
+   Don't fret, I've designed all the scenarios to take advantage of the [AWS Free Tiers](https://aws.amazon.com/free/) for every component we use. I also provide a way to ensure all your components are cleaned up at the end of every scenario.
+
+   **Just please be meticulous about completing the clean-up sections.**
 1. [Create an AWS Admin User, and Locally Save Access Key ID and Secret Access Key.](#create-an-aws-admin-user-and-locally-save-access-key-id-and-secret-access-key)
 1. [Install AWS CLI](#install-aws-cli)
 1. [Configure AWS CLI with the Administrative User Credentials](#configure-aws-cli-with-admin-users-access-key-id-and-secret-key)
