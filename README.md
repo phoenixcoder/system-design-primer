@@ -10,14 +10,18 @@ These examples are backed by [AWS Cloudformation Templates](#what-is-an-aws-clou
 ## Before You Get Started
 
 1. Know Git Basics. Here are some [tutorials](#git-basics-and-tutorials) to get you started.
+1. PREPARE YOURSELF FOR THE LARGEST BARRIER TO ENTRY FOR NON-ENTERPRISE DEVELOPERS ON THE CLOUD.
 1. [Create an AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/).
 
-   **NOTE:** All of these components are *real and production-grade*. Thus, this step requires a **credit card**.
+   **IMPORTANT:** All of these components are *real and production-grade*. Thus, this step requires a **credit card**.
 
    Don't fret, I've designed all the scenarios to take advantage of the [AWS Free Tiers](https://aws.amazon.com/free/) for every component we use. I also provide a way to ensure all your components are cleaned up at the end of every scenario.
 
    **Just please be meticulous about completing the clean-up sections after each scenario.**
-1. [Create an AWS Admin User, and Locally Save Access Key ID and Secret Access Key.](#create-an-aws-admin-user-and-locally-save-access-key-id-and-secret-access-key)
+1. **ANOTHER IMPORTANT NOTE:** Let the actions from the above step simmer for about **4 hours**.
+
+   I'm serious. Due to something called [eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency) and a lot of other security concerns, it takes anywhere from a few minutes to 4 hours for a validation of your account to occur.
+1. **...4 hours later:** [Create an AWS Admin User, and Locally Save Access Key ID and Secret Access Key.](#create-an-aws-admin-user-and-locally-save-access-key-id-and-secret-access-key)
 1. [Install AWS CLI](#install-aws-cli)
 1. [Configure AWS CLI with the Administrative User Credentials](#configure-aws-cli-with-admin-users-access-key-id-and-secret-key)
 
