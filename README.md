@@ -169,6 +169,7 @@ For Mac users, you will need the following:
 
    You should get output similar to the following:
    ```
+   aws iam get-user
    {
      "User": {
     	    "Path": "/",
