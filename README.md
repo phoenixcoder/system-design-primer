@@ -82,7 +82,7 @@ In this scenario, the **Load Balancer** is an intermediary between the client wh
 1. Clone this repo by running:
 
    ```
-   git clone https://github.com/phoenixcoder/IntroSystemDesign.git
+   git clone https://github.com/phoenixcoder/system-design-primer.git
    ```
 1. Run `cd IntroSystemDesign`
 1. Make sure you've [configured your AWS CLI](#configure-aws-cli-with-admin-users-access-key-id-and-secret-key).
